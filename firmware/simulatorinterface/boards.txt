@@ -1,0 +1,22 @@
+# Simulator Interface Board - HW Rev B
+simulator.name=Simulator Interface Board (ICSP)
+# Upload
+simulator.upload.using=arduino:arduinoisp
+simulator.upload.maximum_size=32768
+simulator.upload.tool=arduino:avrdude
+# Bootload
+simulator.bootloader.low_fuses=0xE2
+simulator.bootloader.high_fuses=0xD7
+simulator.bootloader.extended_fuses=0x07
+simulator.bootloader.tool=arduino:avrdude
+simulator.bootloader.file=optiboot_atmega328.hex
+simulator.bootloader.unlock_bits=0x3F
+simulator.bootloader.lock_bits=0x3F
+# Build
+simulator.build.mcu=atmega328p
+// Alternative mcu
+//simulator.build.mcu=atmega328
+simulator.build.f_cpu=8000000L
+simulator.build.core=arduino:arduino
+simulator.build.variant=arduino:standard
+
