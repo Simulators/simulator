@@ -16,7 +16,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   
-  Tested against Abel 3.9.0b, Beltower 2015 (12.29) & Virtual Belfry 3.1b.
+  Tested against Abel 3.9.1, Beltower 2015 (12.29) & Virtual Belfry 3.1b.
   
     1.1 : One Bell version derived from Simulator Interface v2.2.
 		  Reduce code size heavily for One Bell version (8kB ATTiny85).
@@ -25,6 +25,7 @@
 		  Too many changes from main code to have a #define HW_ONEBELL!
 		  7,420 Bytes Flash, 215 Bytes SRAM.
 		  ** 1st Manx Release (on Rev A PCB) - 20/05/2015 **
+		  Tested against Abel 3.9.1.
 	
 */
 
