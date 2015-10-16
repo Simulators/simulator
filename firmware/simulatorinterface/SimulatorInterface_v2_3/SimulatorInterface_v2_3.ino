@@ -66,6 +66,7 @@ Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.1b.
 		SplitterBox testing.
 		Re-indent all the code with TestFX.
 		Tested against Abel 3.9.1.
+		Fixed test mode bug (re-using loop counters and thus breaking open handstroke leads).
 	
 */
 
@@ -435,6 +436,8 @@ void loop() {
 
 	// main loop counter
 	int i;
+	// test mode counters
+	int j, k;
 
 	// loop around all the active channels and look at the state of the state machine for each
 	for ( i = 0; i < numChannels; i++ ) {
@@ -702,9 +705,9 @@ void loop() {
 				//ring rounds forever
 				while(true) {
 					// twice - handstroke and backstroke
-					for ( i = 0; i < 2; i++ ) {
-						for ( i = 0; i < testBells; i++ ) {
-							Serial.print( bellStrikeChar[i] );
+					for ( j = 0; j < 2; j++ ) {
+						for ( k = 0; k < testBells; k++ ) {
+							Serial.print( bellStrikeChar[k] );
 							delay(testInterval);
 						}
 					}
