@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.1b.
+Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.2.
 
 	1.2 : First production release
 	1.3 : Changes to signal LED blink to support Beltower 2013 (12.15)
@@ -67,6 +67,7 @@ Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.1b.
 		Re-indent all the code with TestFX.
 		Tested against Abel 3.9.1.
 		Fixed test mode bug (re-using loop counters and thus breaking open handstroke leads).
+		Tested against Virtual Belfry 3.2 (no code changes)
 	
 */
 
