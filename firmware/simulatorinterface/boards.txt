@@ -7,7 +7,7 @@ simulator.upload.tool=arduino:avrdude
 # Bootload
 simulator.bootloader.low_fuses=0xE2
 simulator.bootloader.high_fuses=0xD7
-simulator.bootloader.extended_fuses=0x07
+simulator.bootloader.extended_fuses=0x05
 simulator.bootloader.tool=arduino:avrdude
 simulator.bootloader.file=optiboot_atmega328.hex
 simulator.bootloader.unlock_bits=0x3F

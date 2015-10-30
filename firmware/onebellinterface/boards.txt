@@ -1,0 +1,16 @@
+# One Bell Simulator Interface Board - HW Rev A
+onebell.name=One Bell Simulator Interface Board
+onebell.bootloader.tool=arduino:avrdude
+onebell.bootloader.unlock_bits=0xff
+onebell.bootloader.lock_bits=0xff
+onebell.build.core=arduino:arduino
+onebell.build.board=attiny
+onebell.upload.tool=arduino:avrdude
+onebell.upload.maximum_size=8192
+onebell.build.mcu=attiny85
+onebell.build.variant=tiny8
+onebell.bootloader.low_fuses=0xe2
+onebell.bootloader.high_fuses=0xd5
+onebell.bootloader.extended_fuses=0xff
+onebell.build.f_cpu=8000000L
+
