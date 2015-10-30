@@ -67,8 +67,26 @@ Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.2.
 		Re-indent all the code with TestFX.
 		Tested against Abel 3.9.1.
 		Fixed test mode bug (re-using loop counters and thus breaking open handstroke leads).
-		Tested against Virtual Belfry 3.2 (no code changes)
+		Tested against Virtual Belfry 3.2 (no code changes).
+		Changed EEPROM handling to read-before-write to reduce EEPROM write wear, as per
+		ATmel recommended practice.
+		Amended recommended ATmega328P fuse settings.
+		12,708 Bytes Flash, 618 Bytes SRAM.
 	
+*/
+
+/*
+ATmega328P fuse settings for 8MHz internal clock:
+low_fuses=0xe2
+	SUT0
+	CKSEL3
+	CKSEL2
+	CKSEL0
+high_fuses=0xd7
+	SPIEN
+	EESAVE
+extended_fuses=0x05
+	BODLEVEL1
 */
 
 // Simulator Interface Hardware
@@ -835,10 +853,18 @@ in the simulator.
 
 				int i;
 				for ( i = 0; i < 12; i++ ) {
-					bellStrikeDelay[i] = long(tempDelayBuffer[i]) * 10;
-					
-					// Store the byte value in EEPROM locations 0-11
-					EEPROM.write( i, tempDelayBuffer[i] );
+					if ( tempDelayBuffer[i] != 0 ) {
+						// Don't overwrite timers with zero values, for better compatibility
+						// with the Splitter Box.
+						bellStrikeDelay[i] = long(tempDelayBuffer[i]) * 10;
+						
+						// Store the byte value in EEPROM locations 0-11
+						// Check first that the value has actually changed, to reduce EEPROM write wear.
+						// (Already checked above that we are not writing a zero)
+						if ( EEPROM.read(i) != tempDelayBuffer[i] ) {
+							EEPROM.write( i, tempDelayBuffer[i] );
+						}							
+					}					
 				}
 				
 				// Disable debugging

@@ -240,7 +240,9 @@ void handleCLI( byte commandByte ) {
 
 	case 'A':    // A  = Set Abel quirks mode
 		Serial.println( char( commandByte ) );
-		EEPROM.write( 17, 'A' ); // Save Abel mode to EEPROM location 17
+		if ( EEPROM.read( 17 ) != 'A' ) {
+			EEPROM.write( 17, 'A' ); // Save Abel mode to EEPROM location 17
+		}
 		termSetFor( TERM_CONFIRM );
 		Serial.println(F("Abel mode set in EEPROM"));
 		termSetFor( TERM_DEFAULT );
@@ -251,7 +253,9 @@ void handleCLI( byte commandByte ) {
 
 	case 'B':    // B  = Set Beltower quirks mode
 		Serial.println( char( commandByte ) );
-		EEPROM.write( 17, 'B' ); // Save Beltower mode to EEPROM location 17
+		if ( EEPROM.read( 17 ) != 'B' ) {
+			EEPROM.write( 17, 'B' ); // Save Beltower mode to EEPROM location 17
+		}
 		termSetFor( TERM_CONFIRM );
 		Serial.println(F("Beltower mode set in EEPROM"));
 		termSetFor( TERM_DEFAULT );
@@ -262,7 +266,9 @@ void handleCLI( byte commandByte ) {
 
 	case 'R':    // R  = Set Ringleader quirks mode
 		Serial.println( char( commandByte ) );
-		EEPROM.write( 17, 'R' ); // Save Ringleader mode to EEPROM location 17
+		if ( EEPROM.read( 17 ) != 'R' ) {
+			EEPROM.write( 17, 'R' ); // Save Ringleader mode to EEPROM location 17
+		}
 		termSetFor( TERM_CONFIRM );
 		Serial.println(F("Ringleader mode set in EEPROM"));
 		termSetFor( TERM_DEFAULT );
@@ -273,7 +279,9 @@ void handleCLI( byte commandByte ) {
 
 	case 'X':    // x  = Set no quirks mode - Generic simulator
 		Serial.println( char( commandByte ) );
-		EEPROM.write( 17, 'X' ); // Save no quirks mode to EEPROM location 17
+		if ( EEPROM.read( 17 ) != 'X' ) {
+			EEPROM.write( 17, 'X' ); // Save no quirks mode to EEPROM location 17
+		}
 		termSetFor( TERM_CONFIRM );
 		Serial.println(F("Generic mode set in EEPROM"));
 		termSetFor( TERM_DEFAULT );
@@ -328,9 +336,13 @@ void handleCLI( byte commandByte ) {
 	case 'S':    // S  = Save settings to EEPROM as bytes
 		Serial.println( char( commandByte ) );
 		termSetFor( TERM_CONFIRM );
-		EEPROM.write( 18, byte( numChannels ) ); // Save numChannels (int) to location 18
+		if ( EEPROM.read( 18 ) != byte( numChannels ) ) {
+			EEPROM.write( 18, byte( numChannels ) ); // Save numChannels (int) to location 18
+		}
 		Serial.println(F("Active channels set in EEPROM"));
-		EEPROM.write( 19, byte( bellDebounceDelay ) ); // Save bellDebounceDelay to location 19
+		if ( EEPROM.read( 19 ) != byte( bellDebounceDelay ) ) {
+			EEPROM.write( 19, byte( bellDebounceDelay ) ); // Save bellDebounceDelay to location 19
+		}
 		Serial.println(F("Debounce timer set in EEPROM"));
 		termSetFor( TERM_DEFAULT );
 		showCLI();
@@ -352,7 +364,9 @@ void handleCLI( byte commandByte ) {
 		termSetFor( TERM_CONFIRM );
 		Serial.print(F("Serial Port Speed: "));
 		Serial.println( serialSpeeds[serialSpeed] );
-		EEPROM.write( 20, byte( serialSpeed ) ); // Save serialSpeed to location 20
+		if ( EEPROM.read( 20 ) != byte( serialSpeed ) ) {
+			EEPROM.write( 20, byte( serialSpeed ) ); // Save serialSpeed to location 20
+		}
 		Serial.println(F("Serial speed set in EEPROM, please reboot interface"));
 		termSetFor( TERM_DEFAULT );
 		showCLI();
