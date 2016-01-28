@@ -318,7 +318,9 @@ void handleCLI( byte commandByte ) {
 			Serial.print(F("Enabled Sensors: "));
 			printMask( enabledSensorMask, numChannels ); // includes a CR
 			// Prompt the user for a sensor number to toggle on or off
-			Serial.print(F(" -> Toggle bell value [1-12, 0=Done]: "));
+			Serial.print(F(" -> Toggle bell value [1-"));
+			Serial.print( numChannels );
+			Serial.print(F(", 0=Done]: "));
 			termSetFor( TERM_DEFAULT );
 			readval = vtSerial.ReadLong(); // read integer ( expecting 1 - 12, 0 to finish)
 			Serial.println("");
@@ -457,7 +459,9 @@ void handleCLI( byte commandByte ) {
 				Serial.print(F("Debug Bell Mask: "));
 				printMask( debugBellMask, numChannels ); // includes a CR
 				// Prompt the user for a bell number to toggle on or off
-				Serial.print(F(" -> Toggle bell value [1-12, 0=Done]: "));
+				Serial.print(F(" -> Toggle bell value [1-"));
+				Serial.print( numChannels );
+				Serial.print(F(", 0=Done]: "));
 				termSetFor( TERM_DEFAULT );
 				readval = vtSerial.ReadLong(); // read integer ( expecting 1 - 12, 0 to finish)
 				Serial.println("");
