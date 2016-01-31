@@ -421,14 +421,16 @@ void handleCLI( byte commandByte ) {
 		
 	case 'd':    // d  = Set debug mode OFF
 		Serial.println( char( commandByte ) );
-		debugMode = false;
-		termSetFor( TERM_DEBUG );
-		Serial.println(F("Debug Mode OFF"));
-		termSetFor( TERM_DEFAULT );
-		showCLI();
-		// blink the LED to indicate we got a valid command
-		blinkLED( LEDyellow, 2, 7 );
-		// Don't change the debug level here, remember it in case debugging is turned back on
+		if ( debugMode ) {
+			debugMode = false;
+			termSetFor( TERM_DEBUG );
+			Serial.println(F("Debug Mode OFF"));
+			termSetFor( TERM_DEFAULT );
+			showCLI();
+			// blink the LED to indicate we got a valid command
+			blinkLED( LEDyellow, 2, 7 );
+			// Don't change the debug level here, remember it in case debugging is turned back on
+		} //debugMode
 		break;
 
 	case 'Z':    // Z  = Set volatile (active) timers to 500msec for calibration

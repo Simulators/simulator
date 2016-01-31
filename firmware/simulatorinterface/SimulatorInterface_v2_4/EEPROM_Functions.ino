@@ -60,7 +60,7 @@ void saveToEEPROM( void )
 		EEPROM.write( 19, byte( bellDebounceDelay ) ); // Save bellDebounceDelay to location 19
 	}
 	Serial.println(F("Debounce timer saved to EEPROM"));
-		
+	
 	if ( EEPROM.read(21) != lowByte( enabledSensorMask ) ) {
 		EEPROM.write( 21, lowByte( enabledSensorMask ) );
 	}
@@ -76,7 +76,7 @@ void saveToEEPROM( void )
 		if ( EEPROM.read(24) != highByte( debugBellMask ) ) {
 			EEPROM.write( 24, highByte( debugBellMask ) );
 		}
-	Serial.println(F("Debug mask saved to EEPROM"));
+		Serial.println(F("Debug mask saved to EEPROM"));
 	}
 	termSetFor( TERM_DEFAULT );
 

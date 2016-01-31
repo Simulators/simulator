@@ -82,7 +82,7 @@ Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.2.
 		channels equipped.
 		Simplified the CLI for setting simulator types (as option Q), and renamed the 
 		debounce timer command from U to B.
-		13,508 Bytes Flash, 631 Bytes SRAM.
+		13,578 Bytes Flash, 631 Bytes SRAM.
 */
 
 /*
@@ -397,7 +397,7 @@ void setup() {
 		// if the bells are down (and thus signalling continuously) and result in a fire-up
 		// on startup.
 		bellSensorLastValue[i] = LOW;
-	
+		
 		// initialize the strike send time values. These values should never get used, because
 		// they will be overwritten when the actual time is calculated as the state machine enters
 		// "WAIT_TO_SEND", but there is no harm in initialising it here just in case.
@@ -895,7 +895,7 @@ in the simulator.
 			}
 			else
 			{
-		/*
+				/*
 		Either we didn't read enough data for it to be delay values, or the last byte was
 		not 0xFF. It might be a (non-MBI) CLI command, but we have read the data now so we
 		can't peek any more.
