@@ -2,7 +2,7 @@
 Splitter Box v1.4 Beta
 Terminal Functions Attributes
 
-Copyright 2015 Andrew J Instone-Cowie.
+Copyright 2015-2016 Andrew J Instone-Cowie.
 
 This is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
