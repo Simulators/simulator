@@ -1,7 +1,7 @@
 /*
 Splitter Box v1.4 Beta
 
-Copyright 2015 Andrew J Instone-Cowie.
+Copyright 2015-2016 Andrew J Instone-Cowie.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -153,9 +153,14 @@ typedef struct {
 	char mappedChar;			//0-9ETABCDWXYZ, sent to the simulator PC(s).
 } TargetSelector;
 
+// Define the maximum number of targets in the array below, and an integer as an index value
+// when searching the Targets[] array.
+const int numTargets = 20;
+int targetIndex;
+
 // Create the target map and set some default values. Some of these will be overwritten
 // in setup() from EEPROM values.
-TargetSelector Targets[20] = {
+TargetSelector Targets[numTargets] = {
 	{'1',0,'1'},
 	{'2',1,'2'},
 	{'3',2,'3'},
@@ -181,11 +186,6 @@ TargetSelector Targets[20] = {
 // Define an array of valid mapped characters for input checking.
 //ABCD is standard nomenclature for 13-16, WXYZ for switches.
 const char validMappedChars[] = "1234567890ETABCDWXYZ"; 
-
-// Define the maximum number of targets, and an integer as an index value when
-// searching the Targets[] array.
-const int numTargets = 20;
-int targetIndex;
 
 // ------------------------------------------------------------------------------------------
 //                                     CLI Terminal
