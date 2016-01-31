@@ -239,7 +239,10 @@ void handleCLI( byte commandByte ) {
 		termSetFor( TERM_INPUT );
 		// Prompt the user for a new simulator type 
 		Serial.print(F(" -> New simulator type ["));
-		Serial.print( validSimulatorTypes );
+		// List the valid responses
+		for ( i = 0; i < numSimulatorNames; i++) {
+			Serial.print( simulatorNames[i].simOneChar );
+		}
 		Serial.print(F("]: "));
 		termSetFor( TERM_DEFAULT );
 		while (! checkValidSimulatorType( readNewSimType ) ) {		
@@ -684,23 +687,21 @@ void enableSensors( word thisMask, int maxBits )
 *********************************************************************************************
 */
 
-//Check that the simulator type supplied by the user (or found in EEPROM) is valid,
-//by seeing if it exists in the list validSimulatorTypes[].
+// Check that the simulator type supplied by the user (or found in EEPROM) is valid,
+// by seeing if it exists in the simOneChar field of simulatorNames[].
 
-int checkValidSimulatorType( char testchar )
+boolean checkValidSimulatorType( char testchar )
 {
-	//The test char should be listed in the array validSimulatorTypes[]
+
 	int i;
-	//scan the validSimulatorTypes[] array
-	for ( i = 0; i < sizeof( validSimulatorTypes ) - 1; i++ ) {
-		if( testchar == validSimulatorTypes[i] ) {
-			//found the character, it's valid
+	for ( i = 0; i < numSimulatorNames; i++) {
+		if (testchar == simulatorNames[i].simOneChar) {
 			return true;
-			//no need to look any further down the array
+			// No need to go any further down the list
 			break;
 		}
 	}
-	// If we get here the testchar wasn't found, so it's invalid
+
 	return false;
 }
 
@@ -713,28 +714,21 @@ int checkValidSimulatorType( char testchar )
 // Passed the char code for the simulator type, prints a textual representation of that type.
 
 void printSimulatorTypeName( char thisType ) {
-
-	// So this is reasonably horrible, but as I can't do F() globally,
-	// this will have to do to get the text version into flash...	
-	switch ( thisType ) {
-	case 'A':
-		Serial.print(F("Abel"));
-		break;
-	case 'B':
-		Serial.print(F("Beltower"));
-		break;
-	case 'R':
-		Serial.print(F("Ringleader"));
-		break;
-	case 'V':
-		Serial.print(F("Virtual Belfry"));
-		break;
-	case 'X':
-		Serial.print(F("Generic"));
-		break;
-	default: // Some other
+	
+	boolean found;
+	found = false;
+	int i;
+	for ( i = 0; i < numSimulatorNames; i++) {
+		if (thisType == simulatorNames[i].simOneChar) {
+			Serial.print( simulatorNames[i].simLongName );
+			found = true;
+			break;
+		}
+	}
+	
+	if ( ! found ) {
+		// It wasn't in the array.
 		Serial.print(F("Unknown"));
-		break;
 	}
 	
 }

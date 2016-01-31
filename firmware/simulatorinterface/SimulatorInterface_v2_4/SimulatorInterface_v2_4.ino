@@ -82,7 +82,7 @@ Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.2.
 		channels equipped.
 		Simplified the CLI for setting simulator types (as option Q), and renamed the 
 		debounce timer command from U to B.
-		13,578 Bytes Flash, 631 Bytes SRAM.
+		15,144 Bytes Flash, 708 Bytes SRAM.
 */
 
 /*
@@ -203,9 +203,25 @@ word enabledSensorMask; // initialised from EEPROM in setup. See option E.
 // Set up a char to hold the current simulator type (Abel, Beltower, etc
 char simulatorType; // initialised from EEPROM in setup. See option E.
 
-// Define an array of valid simulator types for input checking.
-// Abel/Beltower/Ringleader/Virtual Belfry/Generic. See also printSimulatorTypeName();
-const char validSimulatorTypes[] = "ABRVX"; 
+// Define a struct to list the available simulator package types and a one character
+// abbreviation for input and EEPROM storage.
+typedef struct {
+	const char simOneChar;		//e.g. ABRVX
+	String simLongName;			//e.g. Abel, Beltower, etc
+} simName;
+
+// Define the maximum number of simulator names in the array below.
+const int numSimulatorNames = 5;
+
+// Define an array of valid simulator names for input checking (e.g. Abel/Beltower/Ringleader
+// /Virtual Belfry/Generic. See also printSimulatorTypeName() & checkValidSimulatorType();
+simName simulatorNames[numSimulatorNames] = {
+	{'A',"Abel"},
+	{'B',"Beltower"},
+	{'R',"Ringleader"},
+	{'V',"Virtual Belfry"},
+	{'X',"Generic"}
+}; 
 
 // -------------------------------------------------------------------------------------------
 //                                   Sensor Debounce
