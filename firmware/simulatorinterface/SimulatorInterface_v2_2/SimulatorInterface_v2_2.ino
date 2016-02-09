@@ -16,7 +16,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   
-  Tested against Abel 3.9.0b, Beltower 12.29, Virtual Belfry 3.1b.
+  Tested against Abel 3.9.1, Beltower 12.29, Virtual Belfry 3.1b.
   
     1.2 : First production release
     1.3 : Changes to signal LED blink to support Beltower 2013 (12.15)
@@ -60,7 +60,7 @@
 	      Make debug messages much less verbose, to mitigate serial port buffer issues
 		  Framework for per-channel debugging and complete reworking of the debug code (I
 		  never liked the original implementation).
-		  Tested against Beltower 2015 (12.29) & Virtual Belfry 3.1b
+		  Tested against Beltower 2015 (12.29), Virtual Belfry 3.1b & Abel 3.9.1
 		  ** 4th Cathedral Release (on Rev B PCB) - 23/05/2015 **
 	
 */

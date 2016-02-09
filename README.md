@@ -8,3 +8,5 @@ Here you will find all the resources for building the Liverpool Ringing Simulato
 * PCB Fabrication Gerber Files
 
 You probably want to start in the documentation folder...
+
+Be sure to switch to the development branch for the latest code and documentation.
