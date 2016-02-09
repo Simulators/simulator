@@ -49,7 +49,6 @@ void saveToEEPROM( void )
 		EEPROM.write( 17, byte( simulatorType ) ); // Save simulatorType (char) to location 17
 	}
 	Serial.println(F("Simulator type saved to EEPROM"));
-
 	
 	if ( EEPROM.read( 18 ) != byte( numChannels ) ) {
 		EEPROM.write( 18, byte( numChannels ) ); // Save numChannels (int) to location 18
@@ -81,60 +80,6 @@ void saveToEEPROM( void )
 	termSetFor( TERM_DEFAULT );
 
 }
-
-/*
-*********************************************************************************************
-*                                  Function dumpEEPROM()                                    *
-*********************************************************************************************
-*/
-
-//Dump the EEPROM port indexes from locations 0-20.
-//Dump the EEPROM mapped characters from locations 20-39.
-
-/*
-void dumpEEPROM( void )
-{
-	//loop counter
-	int i;
-	
-	portUSB[0]->println(F("EEPROM Mapping:"));
-
-	//Print the input characters for reference
-	portUSB[0]->print(F(" - Signal:\t"));
-	for ( i = 0; i < numTargets; i++ ) {
-		portUSB[0]->print( Targets[i].inputChar );
-		portUSB[0]->print(F(" "));
-	}
-	portUSB[0]->println(""); //new line
-	
-	if( debugMode ) {
-		//Dump the raw port indexes in debug mode
-		portUSB[0]->print(F(" - Index:\t"));
-		for ( i = 0; i < numTargets; i++ ) {
-			portUSB[0]->print( (int) EEPROM.read(i) );
-			portUSB[0]->print(F(" "));
-		}
-		portUSB[0]->println(""); //new line
-	}
-	
-	//Dump the port indexes, cast to ints and mapped to names
-	portUSB[0]->print(F(" - Port:\t"));
-	for ( i = 0; i < numTargets; i++ ) {
-		portUSB[0]->print( indexToPortName( (int) EEPROM.read(i) ) );
-		portUSB[0]->print(F(" "));
-	}
-	portUSB[0]->println(""); //new line
-
-	//Dump the mapped chars, cast to chars
-	portUSB[0]->print(F(" - Mapped:\t"));
-	for ( i = 0; i < numTargets; i++ ) {
-		portUSB[0]->print( (char) EEPROM.read(i + numTargets) );
-		portUSB[0]->print(F(" "));
-	}
-	portUSB[0]->println(""); //new line
-
-}
-*/
 
 /*
 *********************************************************************************************

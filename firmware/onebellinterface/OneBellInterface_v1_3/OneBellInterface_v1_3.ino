@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Tested against Abel 3.9.1, Beltower 2015 (12.29) & Virtual Belfry 3.2.
+Tested against Abel 3.9.1, Beltower 12.29 (2015) & Virtual Belfry 3.3.
 
 	1.1 : One Bell version derived from Simulator Interface v2.2.
 		Reduce code size heavily for One Bell version (8kB ATTiny85).
