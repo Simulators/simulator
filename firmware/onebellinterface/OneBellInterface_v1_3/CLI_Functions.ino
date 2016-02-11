@@ -230,7 +230,6 @@ void handleCLI( byte commandByte ) {
 			// Elimination of VTSerial requires a cyclic approach.
 			// Cycle round all potential debug flag values. For 3 bits this is (b001 - b111 ==
 			// d1 - d7), or 1 to 2^maxDebugFlags - 1
-			mySerial.println( char( commandByte ) );
 			// Mod the current flags by the maximum (currently 7), then add one
 			// If it's currently 7, modding it 7 = 0, + 1 = 1
 			// If it's currently 1, modding it 7 = 1, + 1 = 2, etc

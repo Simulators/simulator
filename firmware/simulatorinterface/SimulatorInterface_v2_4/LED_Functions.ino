@@ -30,7 +30,7 @@ by zero or more short flashes. We can't use the serial port for debugging.
 
 1 long & N short = MBI protocol commands
 2 long & N short = Arduino config commands (EEPROM or volatile)
-0 lomg & 1 short = CLI keypress (status, etc)
+0 long & 1 short = CLI keypress (status, etc)
 3 long & 0 short = Serial Data Error
 */
 
