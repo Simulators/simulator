@@ -81,9 +81,9 @@ Tested against Abel 3.9.1, Beltower 12.29 (2015), Virtual Belfry 3.3.
 		Changed the way the # option works, to give a better CLI on interfaces with <12
 		channels equipped.
 		Simplified the CLI for setting simulator types (as option Q), and renamed the 
-		debounce timer command from U to B.
+		debounce timer command from U to B. Updated LED signal codes.
 		Tested against Virtual Belfry 3.3 (no code changes).
-		15,144 Bytes Flash, 708 Bytes SRAM.
+		15,188 Bytes Flash, 708 Bytes SRAM.
 		** 5th Cathedral Release (on Rev B PCB) - 10/02/2016 **
 */
 
