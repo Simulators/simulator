@@ -279,8 +279,7 @@ void handleCLI( byte commandByte ) {
 		Serial.println( numChannels );
 		termSetFor( TERM_DEFAULT );
 		showCLI();
-		// just a quick blink so as not to slow the CLI down too much when cycling
-		blinkLED( LEDyellow, 0, 1 ); //one quick
+		blinkLED( LEDyellow, 2, 2 );
 		break;
 		
 	case 'B':    // B  = Set the debounce timer value (ms)
@@ -300,8 +299,7 @@ void handleCLI( byte commandByte ) {
 		Serial.println(F("ms"));
 		termSetFor( TERM_DEFAULT );
 		showCLI();
-		// just a quick blink so as not to slow the CLI down too much when cycling
-		blinkLED( LEDyellow, 0, 1 ); //one quick
+		blinkLED( LEDyellow, 2, 3 );
 		break;
 		
 	case 'S':    // S  = Save settings to EEPROM as bytes
@@ -338,9 +336,8 @@ void handleCLI( byte commandByte ) {
 		Serial.print(F("Enabled Sensors: "));
 		printMask( enabledSensorMask, numChannels ); // includes a CR
 		termSetFor( TERM_DEFAULT );
-		// just a quick blink so as not to slow the CLI down too much
 		showCLI();
-		blinkLED( LEDyellow, 0, 1 ); //one quick
+		blinkLED( LEDyellow, 2, 4 );
 		break; 
 
 	case 'P':    // P  = Set the serial port speed
@@ -479,8 +476,7 @@ void handleCLI( byte commandByte ) {
 			Serial.print(F("Debug Bell Mask: "));
 			printMask( debugBellMask, numChannels );	  
 			termSetFor( TERM_DEFAULT );
-			// just a quick blink so as not to slow the CLI down too much
-			blinkLED( LEDyellow, 0, 1 ); //one quick
+			blinkLED( LEDyellow, 2, 10 );
 		}
 		showCLI();
 		break; 
