@@ -10,3 +10,5 @@ Here you will find all the resources for building the Liverpool Ringing Simulato
 You probably want to start in the documentation folder...
 
 Be sure to switch to the development branch for the latest code and documentation.
+
+If you didn't get here from http://www.simulators.org.uk/, you might want to go and look at that, too.
