@@ -1,0 +1,8 @@
+Simulator Interface Hardware
+Rev C 04/2016
+
+Clearances improved to suit SeeedStudio DRC (still passes OSH Park DRC).
+OSHW Logo added to schematic & silkscreen.
+Gerbers for SeeedStudio and OSH Park updated.
+
+Submitted for SeeedStudio for fabrication 23/04/2016.
