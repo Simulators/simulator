@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="yes"/>
@@ -141,10 +141,10 @@
 <text x="7.366" y="47.625" size="1.27" layer="21" font="vector" distance="100">Rx
 Tx
 Gnd</text>
-<text x="83.185" y="4.699" size="1.27" layer="21" font="vector" rot="R90">Splittter Box
-Functional Prototype</text>
-<text x="83.82" y="68.834" size="1.016" layer="21" font="vector" rot="R90">Rev 1
-09/2015</text>
+<text x="83.185" y="4.699" size="1.27" layer="21" font="vector" rot="R90">Simulator
+Splitter Box</text>
+<text x="84.7725" y="66.7385" size="1.016" layer="21" font="vector" rot="R90">Rev C
+08/2016</text>
 <rectangle x1="8.255" y1="76.2" x2="8.89" y2="76.835" layer="21"/>
 <rectangle x1="33.655" y1="76.2" x2="34.29" y2="76.835" layer="21"/>
 <rectangle x1="59.055" y1="76.2" x2="59.69" y2="76.835" layer="21"/>
@@ -152,9 +152,12 @@ Functional Prototype</text>
 <wire x1="86.36" y1="78.74" x2="86.36" y2="2.54" width="0.4064" layer="20"/>
 <wire x1="86.36" y1="2.54" x2="0" y2="2.54" width="0.4064" layer="20"/>
 <wire x1="0" y1="2.54" x2="0" y2="78.74" width="0.4064" layer="20"/>
-<rectangle x1="69.342" y1="4.445" x2="69.977" y2="5.08" layer="21"/>
-<rectangle x1="43.942" y1="4.445" x2="44.577" y2="5.08" layer="21"/>
-<rectangle x1="18.542" y1="4.445" x2="19.177" y2="5.08" layer="21"/>
+<rectangle x1="69.85" y1="4.445" x2="70.485" y2="5.08" layer="21"/>
+<rectangle x1="44.45" y1="4.445" x2="45.085" y2="5.08" layer="21"/>
+<rectangle x1="19.05" y1="4.445" x2="19.685" y2="5.08" layer="21"/>
+<rectangle x1="77.47" y1="47.625" x2="78.105" y2="48.26" layer="21"/>
+<rectangle x1="73.66" y1="41.275" x2="74.295" y2="41.91" layer="21"/>
+<text x="77.7875" y="52.07" size="1.27" layer="21" font="vector" ratio="10">MODE</text>
 </plain>
 <libraries>
 <library name="SparkFun-DigitalIC">
@@ -630,6 +633,54 @@ Source: http://www.murata.com .. BL01RN1_DS.pdf</description>
 </package>
 </packages>
 </library>
+<library name="SparkFun-Aesthetics">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find non-functional items- supply symbols, logos, notations, frame blocks, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="OSHW-LOGO-S">
+<polygon width="0.15" layer="21">
+<vertex x="0.3947" y="-0.9528" curve="9.498218"/>
+<vertex x="0.5465" y="-0.8746"/>
+<vertex x="0.9235" y="-1.182"/>
+<vertex x="1.182" y="-0.9235"/>
+<vertex x="0.8746" y="-0.5465" curve="19.000773"/>
+<vertex x="1.0049" y="-0.232"/>
+<vertex x="1.4888" y="-0.1828"/>
+<vertex x="1.4888" y="0.1828"/>
+<vertex x="1.0049" y="0.232" curve="19.000773"/>
+<vertex x="0.8746" y="0.5465"/>
+<vertex x="1.182" y="0.9235"/>
+<vertex x="0.9235" y="1.182"/>
+<vertex x="0.5465" y="0.8746" curve="19.000773"/>
+<vertex x="0.232" y="1.0049"/>
+<vertex x="0.1828" y="1.4888"/>
+<vertex x="-0.1828" y="1.4888"/>
+<vertex x="-0.232" y="1.0049" curve="19.000773"/>
+<vertex x="-0.5465" y="0.8746"/>
+<vertex x="-0.9235" y="1.182"/>
+<vertex x="-1.182" y="0.9235"/>
+<vertex x="-0.8746" y="0.5465" curve="19.000773"/>
+<vertex x="-1.0049" y="0.232"/>
+<vertex x="-1.4888" y="0.1828"/>
+<vertex x="-1.4888" y="-0.1828"/>
+<vertex x="-1.0049" y="-0.232" curve="19.000773"/>
+<vertex x="-0.8746" y="-0.5465"/>
+<vertex x="-1.182" y="-0.9235"/>
+<vertex x="-0.9235" y="-1.182"/>
+<vertex x="-0.5465" y="-0.8746" curve="9.498218"/>
+<vertex x="-0.3947" y="-0.9528"/>
+<vertex x="-0.1794" y="-0.4331" curve="-67.514699"/>
+<vertex x="-0.4688" y="0" curve="-247.473915"/>
+<vertex x="0.1794" y="-0.4331"/>
+</polygon>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -642,7 +693,7 @@ Source: http://www.murata.com .. BL01RN1_DS.pdf</description>
 <designrules name="LaenPCBOrder(OSHPARK)">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
-Die Standard-Design-Rules sind so gewÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤hlt, dass sie fÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼r 
+Die Standard-Design-Rules sind so gewählt, dass sie für 
 die meisten Anwendungen passen. Sollte ihre Platine 
 besondere Anforderungen haben, treffen Sie die erforderlichen
 Einstellungen hier und speichern die Design Rules unter 
@@ -827,121 +878,187 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="2.159" y="39.37" size="1.016" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="5.461" y="40.259" size="1.27" layer="27"/>
 </element>
-<element name="C4" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="46.99" y="33.02"/>
+<element name="C4" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="46.99" y="33.02" smashed="yes">
+<attribute name="NAME" x="47.9425" y="34.29" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="47.244" y="31.496" size="0.4064" layer="27"/>
+</element>
 <element name="ICSP" library="SparkFun-Connectors" package="2X3" value="AVR_SPI_PRG_6PTH" x="72.39" y="43.18" smashed="yes" rot="R90">
 <attribute name="NAME" x="67.945" y="41.91" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="75.565" y="41.91" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="R1" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="59.69" y="48.26" rot="R180"/>
 <element name="TP1" library="SparkFun-Connectors" package="1X02" value="M02PTH" x="22.86" y="29.21" smashed="yes" rot="R270">
-<attribute name="NAME" x="21.336" y="31.0388" size="1.27" layer="25" font="vector"/>
+<attribute name="NAME" x="22.0345" y="30.7213" size="0.635" layer="25" font="vector"/>
 <attribute name="VALUE" x="19.685" y="30.48" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C3" library="SparkFun-Passives" package="CPOL-RADIAL-100UF-25V" value="47uF" x="46.99" y="27.94" rot="R90"/>
-<element name="C5" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="19.05" y="33.02" rot="R180"/>
+<element name="C3" library="SparkFun-Passives" package="CPOL-RADIAL-100UF-25V" value="47uF" x="46.99" y="27.94" smashed="yes" rot="R90">
+<attribute name="VALUE" x="51.308" y="26.035" size="0.8128" layer="27" rot="R90"/>
+<attribute name="NAME" x="44.45" y="30.734" size="0.4064" layer="25" rot="R180"/>
+</element>
+<element name="C5" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="19.05" y="33.02" smashed="yes" rot="R180">
+<attribute name="NAME" x="17.4625" y="34.29" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="18.796" y="34.544" size="0.4064" layer="27" rot="R180"/>
+</element>
 <element name="C6" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="46.99" y="48.26" smashed="yes" rot="R180">
-<attribute name="NAME" x="46.609" y="50.419" size="1.016" layer="25" font="vector" rot="R180"/>
+<attribute name="NAME" x="46.101" y="46.99" size="0.4064" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="46.736" y="49.784" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="C1" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="52.07" y="48.26" rot="R180"/>
+<element name="C1" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="52.07" y="48.26" smashed="yes" rot="R180">
+<attribute name="NAME" x="51.2445" y="46.99" size="0.4064" layer="25" rot="R180"/>
+<attribute name="VALUE" x="51.816" y="49.784" size="0.4064" layer="27" rot="R180"/>
+</element>
 <element name="USBB" library="SparkFun-Connectors" package="USB-B-PTH" value="USB-B" x="35.56" y="11.43" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CONN-08278" x="35.56" y="11.43" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="26.67" y="8.89" size="1.27" layer="25" rot="R270"/>
+<attribute name="NAME" x="26.162" y="8.89" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="33.02" y="10.16" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="IC201" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="35.56" y="24.13" rot="R270"/>
+<element name="IC201" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="35.56" y="24.13" smashed="yes" rot="R270">
+<attribute name="NAME" x="32.8" y="29.21" size="1.27" layer="25" font="vector"/>
+<attribute name="VALUE" x="34.925" y="28.16" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
 <element name="LED201" library="AIC_Custom" package="LED3MM_LARGEHOLES" value="Yellow" x="46.99" y="6.35" smashed="yes" rot="R180">
-<attribute name="NAME" x="50.8" y="11.049" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="48.26" y="3.81" size="0.508" layer="25" ratio="10"/>
 <attribute name="VALUE" x="45.085" y="8.001" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="R203" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="49.53" y="16.51" rot="R270"/>
 <element name="R202" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="46.99" y="16.51" rot="R270"/>
 <element name="R201" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="44.45" y="16.51" rot="R270"/>
 <element name="C201" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="31.75" y="16.51"/>
-<element name="C202" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="39.37" y="16.51" rot="R180"/>
-<element name="C203" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="29.21" y="27.94" rot="R270"/>
+<element name="C202" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="39.37" y="16.51" smashed="yes" rot="R180">
+<attribute name="NAME" x="37.338" y="17.78" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="39.116" y="18.034" size="0.4064" layer="27" rot="R180"/>
+</element>
+<element name="C203" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="29.21" y="27.94" smashed="yes" rot="R270">
+<attribute name="NAME" x="27.94" y="25.908" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="27.686" y="27.686" size="0.4064" layer="27" rot="R270"/>
+</element>
 <element name="USBC" library="SparkFun-Connectors" package="USB-B-PTH" value="USB-B" x="60.96" y="11.43" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CONN-08278" x="60.96" y="11.43" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="52.07" y="8.89" size="1.27" layer="25" rot="R270"/>
+<attribute name="NAME" x="51.435" y="8.89" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="58.42" y="10.16" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="IC301" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="60.96" y="24.13" rot="R270"/>
+<element name="IC301" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="60.96" y="24.13" smashed="yes" rot="R270">
+<attribute name="NAME" x="58.327" y="29.21" size="1.27" layer="25" font="vector"/>
+<attribute name="VALUE" x="60.325" y="28.16" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
 <element name="LED301" library="AIC_Custom" package="LED3MM_LARGEHOLES" value="Yellow" x="72.39" y="6.35" smashed="yes" rot="R180">
-<attribute name="NAME" x="76.2" y="10.922" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="73.66" y="3.81" size="0.508" layer="25" ratio="10"/>
 <attribute name="VALUE" x="70.485" y="8.001" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="R303" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="74.93" y="16.51" rot="R270"/>
 <element name="R302" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="72.39" y="16.51" rot="R270"/>
 <element name="R301" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="69.85" y="16.51" rot="R270"/>
 <element name="C301" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="57.15" y="16.51"/>
-<element name="C302" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="64.77" y="16.51" rot="R180"/>
-<element name="C303" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="54.61" y="27.94" rot="R270"/>
+<element name="C302" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="64.77" y="16.51" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.738" y="17.78" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="64.516" y="18.034" size="0.4064" layer="27" rot="R180"/>
+</element>
+<element name="C303" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="54.61" y="27.94" smashed="yes" rot="R270">
+<attribute name="NAME" x="53.34" y="25.908" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="53.086" y="27.686" size="0.4064" layer="27" rot="R270"/>
+</element>
 <element name="USBA" library="SparkFun-Connectors" package="USB-B-PTH" value="USB-B" x="10.16" y="11.43" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CONN-08278" x="10.16" y="11.43" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="2.54" y="3.81" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="0.635" y="8.89" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="7.62" y="10.16" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="IC101" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="10.16" y="24.13" rot="R270"/>
+<element name="IC101" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="10.16" y="24.13" smashed="yes" rot="R270">
+<attribute name="NAME" x="7.4635" y="29.21" size="1.27" layer="25" font="vector"/>
+<attribute name="VALUE" x="9.525" y="28.16" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
 <element name="LED101" library="AIC_Custom" package="LED3MM_LARGEHOLES" value="Yellow" x="21.59" y="6.35" smashed="yes" rot="R180">
-<attribute name="NAME" x="25.4" y="11.049" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="22.86" y="3.81" size="0.508" layer="25" ratio="10"/>
 <attribute name="VALUE" x="19.685" y="8.001" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="R103" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="24.13" y="16.51" rot="R270"/>
 <element name="R102" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="21.59" y="16.51" rot="R270"/>
 <element name="R101" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="19.05" y="16.51" rot="R270"/>
 <element name="C101" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="6.35" y="16.51"/>
-<element name="C102" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="13.97" y="16.51" rot="R180"/>
-<element name="C103" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="3.81" y="27.94" rot="R270"/>
+<element name="C102" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="13.97" y="16.51" smashed="yes" rot="R180">
+<attribute name="NAME" x="11.938" y="17.78" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="13.716" y="18.034" size="0.4064" layer="27" rot="R180"/>
+</element>
+<element name="C103" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="3.81" y="27.94" smashed="yes" rot="R270">
+<attribute name="NAME" x="2.54" y="25.908" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="2.286" y="27.686" size="0.4064" layer="27" rot="R270"/>
+</element>
 <element name="USBD" library="SparkFun-Connectors" package="USB-B-PTH" value="USB-B" x="68.58" y="69.85" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-08278" x="68.58" y="69.85" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="77.47" y="72.39" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="78.105" y="72.39" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="71.12" y="71.12" size="0.4064" layer="27" rot="R270"/>
 </element>
-<element name="IC401" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="68.58" y="57.15" rot="R90"/>
+<element name="IC401" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="68.58" y="57.15" smashed="yes" rot="R90">
+<attribute name="NAME" x="71.721" y="52.07" size="1.27" layer="25" font="vector" rot="R180"/>
+<attribute name="VALUE" x="69.215" y="53.12" size="1.27" layer="27" ratio="10" rot="R90"/>
+</element>
 <element name="LED401" library="AIC_Custom" package="LED3MM_LARGEHOLES" value="Yellow" x="57.15" y="74.93" smashed="yes">
-<attribute name="NAME" x="53.975" y="70.866" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="55.88" y="77.47" size="0.508" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="59.055" y="73.279" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="R403" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="54.61" y="66.04" rot="R90"/>
 <element name="R402" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="57.15" y="66.04" rot="R270"/>
 <element name="R401" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="59.69" y="66.04" rot="R270"/>
-<element name="C401" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="69.85" y="64.77"/>
-<element name="C402" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="64.77" y="64.77"/>
-<element name="C403" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="74.93" y="53.34" rot="R90"/>
+<element name="C401" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="72.39" y="64.77" rot="R180"/>
+<element name="C402" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="64.77" y="64.77" smashed="yes">
+<attribute name="NAME" x="66.802" y="63.5" size="0.4064" layer="25" rot="R180"/>
+<attribute name="VALUE" x="65.024" y="63.246" size="0.4064" layer="27"/>
+</element>
+<element name="C403" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="74.93" y="53.34" smashed="yes" rot="R90">
+<attribute name="NAME" x="76.1365" y="55.372" size="0.4064" layer="25" rot="R270"/>
+<attribute name="VALUE" x="76.454" y="53.594" size="0.4064" layer="27" rot="R90"/>
+</element>
 <element name="USBE" library="SparkFun-Connectors" package="USB-B-PTH" value="USB-B" x="43.18" y="69.85" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-08278" x="43.18" y="69.85" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="52.07" y="72.39" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="52.705" y="72.39" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="45.72" y="71.12" size="0.4064" layer="27" rot="R270"/>
 </element>
-<element name="IC501" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="43.18" y="57.15" rot="R90"/>
+<element name="IC501" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="43.18" y="57.15" smashed="yes" rot="R90">
+<attribute name="NAME" x="46.3845" y="52.07" size="1.27" layer="25" font="vector" rot="R180"/>
+<attribute name="VALUE" x="43.815" y="53.12" size="1.27" layer="27" ratio="10" rot="R90"/>
+</element>
 <element name="LED501" library="AIC_Custom" package="LED3MM_LARGEHOLES" value="Yellow" x="31.75" y="74.93" smashed="yes">
-<attribute name="NAME" x="28.575" y="70.866" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="30.48" y="77.47" size="0.508" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="33.655" y="73.279" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="R503" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="29.21" y="66.04" rot="R90"/>
 <element name="R502" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="31.75" y="66.04" rot="R270"/>
 <element name="R501" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="34.29" y="66.04" rot="R270"/>
 <element name="C501" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="46.99" y="64.77" rot="R180"/>
-<element name="C502" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="39.37" y="64.77"/>
-<element name="C503" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="49.53" y="53.34" rot="R90"/>
+<element name="C502" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="39.37" y="64.77" smashed="yes">
+<attribute name="NAME" x="41.402" y="63.5" size="0.4064" layer="25" rot="R180"/>
+<attribute name="VALUE" x="39.624" y="63.246" size="0.4064" layer="27"/>
+</element>
+<element name="C503" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="49.53" y="53.34" smashed="yes" rot="R90">
+<attribute name="NAME" x="50.8" y="55.372" size="0.4064" layer="25" rot="R270"/>
+<attribute name="VALUE" x="51.054" y="53.594" size="0.4064" layer="27" rot="R90"/>
+</element>
 <element name="USBF" library="SparkFun-Connectors" package="USB-B-PTH" value="USB-B" x="17.78" y="69.85" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-08278" x="17.78" y="69.85" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="26.67" y="72.39" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="27.305" y="72.39" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="20.32" y="71.12" size="0.4064" layer="27" rot="R270"/>
 </element>
-<element name="IC601" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="17.78" y="57.15" rot="R90"/>
+<element name="IC601" library="ftdichip-3" package="SSOP28DB" value="FT232RL" x="17.78" y="57.15" smashed="yes" rot="R90">
+<attribute name="NAME" x="20.9845" y="52.07" size="1.27" layer="25" font="vector" rot="R180"/>
+<attribute name="VALUE" x="18.415" y="53.12" size="1.27" layer="27" ratio="10" rot="R90"/>
+</element>
 <element name="LED601" library="AIC_Custom" package="LED3MM_LARGEHOLES" value="Yellow" x="6.35" y="74.93" smashed="yes">
-<attribute name="NAME" x="3.302" y="70.866" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="5.08" y="77.47" size="0.508" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="8.255" y="73.279" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="R603" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="3.81" y="66.04" rot="R90"/>
 <element name="R602" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="6.35" y="66.04" rot="R270"/>
 <element name="R601" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="8.89" y="66.04" rot="R270"/>
 <element name="C601" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="21.59" y="64.77" rot="R180"/>
-<element name="C602" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="13.97" y="64.77"/>
-<element name="C603" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="24.13" y="53.34" rot="R90"/>
+<element name="C602" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="47pF" x="13.97" y="64.77" smashed="yes">
+<attribute name="NAME" x="16.002" y="63.5" size="0.4064" layer="25" rot="R180"/>
+<attribute name="VALUE" x="14.224" y="63.246" size="0.4064" layer="27"/>
+</element>
+<element name="C603" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="100nF" x="24.13" y="53.34" smashed="yes" rot="R90">
+<attribute name="NAME" x="25.4" y="55.372" size="0.4064" layer="25" rot="R270"/>
+<attribute name="VALUE" x="25.654" y="53.594" size="0.4064" layer="27" rot="R90"/>
+</element>
 <element name="LED1" library="AIC_Custom" package="LED3MM" value="LED-2COLOUR" x="80.01" y="49.53" smashed="yes" rot="R180">
-<attribute name="NAME" x="77.851" y="52.324" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="81.28" y="46.99" size="0.508" layer="25" ratio="10"/>
 <attribute name="VALUE" x="78.105" y="51.181" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="R2" library="SparkFun-Passives" package="AXIAL-0.4" value="1K" x="72.39" y="34.29" rot="R270"/>
@@ -950,7 +1067,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MPN" value="B3F-1000" x="80.01" y="40.64" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="80.01" y="40.64" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="176432" x="80.01" y="40.64" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="81.661" y="45.72" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="81.661" y="45.72" size="1.27" layer="25" font="vector" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="76.962" y="35.56" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="MODE" library="switch-omron" package="B3F-10XX" value="" x="80.01" y="33.02" smashed="yes" rot="R180">
@@ -958,17 +1075,23 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MPN" value="B3F-1000" x="80.01" y="33.02" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="80.01" y="33.02" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="176432" x="80.01" y="33.02" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="78.105" y="27.686" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="78.105" y="27.686" size="1.27" layer="25" font="vector" ratio="10"/>
 <attribute name="VALUE" x="83.058" y="38.1" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
-<element name="R3" library="SparkFun-Passives" package="AXIAL-0.4" value="10K" x="69.85" y="34.29" rot="R270"/>
-<element name="C2" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="10nF" x="25.4" y="29.21" rot="R270"/>
+<element name="C2" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="10nF" x="25.4" y="29.21" smashed="yes" rot="R270">
+<attribute name="NAME" x="26.67" y="28.3845" size="0.4064" layer="25" rot="R270"/>
+<attribute name="VALUE" x="23.876" y="28.956" size="0.4064" layer="27" rot="R270"/>
+</element>
 <element name="PC" library="SparkFun-Connectors" package="1X03" value="" x="5.08" y="48.26" rot="R90"/>
 <element name="TP2" library="SparkFun-Connectors" package="1X01" value="" x="31.75" y="48.26" smashed="yes">
-<attribute name="NAME" x="30.4038" y="50.0888" size="1.27" layer="25"/>
+<attribute name="NAME" x="30.8483" y="49.8348" size="0.635" layer="25"/>
 <attribute name="VALUE" x="30.48" y="45.085" size="1.27" layer="27"/>
 </element>
-<element name="L1" library="inductors" package="BL02RN1" value="BL02RN1" x="19.05" y="27.94" rot="R90"/>
+<element name="L1" library="inductors" package="BL02RN1" value="BL02RN1" x="19.05" y="27.94" smashed="yes" rot="R90">
+<attribute name="NAME" x="17.78" y="27.94" size="0.4064" layer="25" font="vector" rot="R90"/>
+<attribute name="VALUE" x="22.225" y="25.4" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="LOGO1" library="SparkFun-Aesthetics" package="OSHW-LOGO-S" value="OSHW-LOGOS" x="83.82" y="76.2"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -1260,7 +1383,6 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="MOSI">
 <contactref element="ICSP" pad="4"/>
 <contactref element="IC1" pad="17"/>
-<contactref element="R3" pad="P$1"/>
 <wire x1="60.3504" y1="44.5008" x2="59.7408" y2="44.5008" width="0.1524" layer="16"/>
 <wire x1="61.8744" y1="46.0248" x2="60.3504" y2="44.5008" width="0.1524" layer="16"/>
 <wire x1="69.4944" y1="46.0248" x2="68.58" y2="46.0248" width="0.1524" layer="16"/>
@@ -1271,7 +1393,16 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="69.7992" y1="41.4528" x2="69.7992" y2="39.4716" width="0.1524" layer="16"/>
 <wire x1="68.58" y1="42.672" x2="69.7992" y2="41.4528" width="0.1524" layer="16"/>
 <wire x1="68.58" y1="46.0248" x2="68.58" y2="42.672" width="0.1524" layer="16"/>
-<wire x1="69.7992" y1="39.4716" x2="69.85" y2="39.37" width="0.1524" layer="16"/>
+<contactref element="MODE" pad="1"/>
+<contactref element="MODE" pad="2"/>
+<wire x1="83.2612" y1="30.7594" x2="76.7588" y2="30.7594" width="0.1524" layer="1"/>
+<wire x1="69.7992" y1="39.4716" x2="69.85" y2="39.4716" width="0.1524" layer="16"/>
+<wire x1="69.85" y1="39.4716" x2="69.85" y2="27.94" width="0.1524" layer="16"/>
+<wire x1="69.85" y1="27.94" x2="71.12" y2="26.67" width="0.1524" layer="16"/>
+<wire x1="71.12" y1="26.67" x2="73.66" y2="26.67" width="0.1524" layer="16"/>
+<wire x1="73.66" y1="26.67" x2="74.93" y2="27.94" width="0.1524" layer="16"/>
+<wire x1="74.93" y1="27.94" x2="74.93" y2="29.21" width="0.1524" layer="16"/>
+<wire x1="74.93" y1="29.21" x2="76.7588" y2="30.7594" width="0.1524" layer="16"/>
 </signal>
 <signal name="MISO">
 <contactref element="ICSP" pad="1"/>
@@ -1685,15 +1816,14 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="IC401" pad="15"/>
 <contactref element="C401" pad="1"/>
 <wire x1="66.4464" y1="61.4172" x2="65.0748" y2="61.4172" width="0.1524" layer="1"/>
-<wire x1="69.7992" y1="64.77" x2="66.4464" y2="61.4172" width="0.1524" layer="1"/>
 <wire x1="65.0748" y1="61.4172" x2="64.924" y2="61.375" width="0.1524" layer="1"/>
-<wire x1="69.7992" y1="64.77" x2="69.85" y2="64.77" width="0.1524" layer="1"/>
 <wire x1="69.9516" y1="69.342" x2="69.9516" y2="69.7992" width="0.1524" layer="1"/>
 <wire x1="71.0184" y1="68.2752" x2="69.9516" y2="69.342" width="0.1524" layer="1"/>
-<wire x1="71.0184" y1="65.8368" x2="71.0184" y2="68.2752" width="0.1524" layer="1"/>
-<wire x1="69.9516" y1="64.77" x2="71.0184" y2="65.8368" width="0.1524" layer="1"/>
 <wire x1="69.9516" y1="69.7992" x2="69.83" y2="69.85" width="0.1524" layer="1"/>
-<wire x1="69.9516" y1="64.77" x2="69.85" y2="64.77" width="0.1524" layer="1"/>
+<wire x1="66.4464" y1="61.4172" x2="69.215" y2="61.4045" width="0.1524" layer="1"/>
+<wire x1="69.215" y1="61.4045" x2="72.39" y2="64.77" width="0.1524" layer="1"/>
+<wire x1="72.39" y1="64.77" x2="72.39" y2="66.8655" width="0.1524" layer="1"/>
+<wire x1="72.39" y1="66.8655" x2="71.0184" y2="68.2752" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="USBD" pad="D-"/>
@@ -1952,19 +2082,6 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="81.2292" y1="45.1104" x2="72.39" y2="36.2712" width="0.1524" layer="16"/>
 <wire x1="81.2292" y1="49.53" x2="81.2292" y2="45.1104" width="0.1524" layer="16"/>
 <wire x1="81.2292" y1="49.53" x2="81.28" y2="49.53" width="0.1524" layer="16"/>
-</signal>
-<signal name="N$8">
-<contactref element="R3" pad="P$2"/>
-<contactref element="MODE" pad="1"/>
-<contactref element="MODE" pad="2"/>
-<wire x1="83.2104" y1="30.7848" x2="76.8096" y2="30.7848" width="0.1524" layer="1"/>
-<wire x1="76.8096" y1="30.7848" x2="76.7588" y2="30.7594" width="0.1524" layer="1"/>
-<wire x1="83.2104" y1="30.7848" x2="83.2612" y2="30.7594" width="0.1524" layer="1"/>
-<wire x1="70.7136" y1="29.2608" x2="69.9516" y2="29.2608" width="0.1524" layer="1"/>
-<wire x1="72.0852" y1="30.6324" x2="70.7136" y2="29.2608" width="0.1524" layer="1"/>
-<wire x1="76.6572" y1="30.6324" x2="72.0852" y2="30.6324" width="0.1524" layer="1"/>
-<wire x1="69.9516" y1="29.2608" x2="69.85" y2="29.21" width="0.1524" layer="1"/>
-<wire x1="76.6572" y1="30.6324" x2="76.7588" y2="30.7594" width="0.1524" layer="1"/>
 </signal>
 <signal name="CRO">
 <contactref element="IC1" pad="28"/>
