@@ -1,8 +1,4 @@
 One Bell Simulator Interface Hardware
-Rev B 04/2016
+Rev C 08/2016
+Design Change - Replace SA5.0CA with SA5.0A
 
-Clearances improved to suit SeeedStudio DRC (still passes OSH Park DRC).
-OSHW Logo added to schematic & silkscreen.
-Gerbers for SeeedStudio and OSH Park updated.
-
-Submitted for SeeedStudio for fabrication 23/04/2016.
