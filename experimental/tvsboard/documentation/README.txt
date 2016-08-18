@@ -13,8 +13,9 @@ nylon spacers, 12mm long, and suitable nylon M3 pan head screws and nuts.
 
 The component used is the SA5.0A uni-directional TVS diode from Littlefuse, one per sensor line.
 
-This is suitable for Simulator Interface board Rev C. It is not required for Rev D boards which
-incorporate the diodes on the main PCB.
+This is suitable for Simulator Interface board Rev C. It is not required for Rev D boards which incorporate the diodes on the main PCB.
+
+PCB: https://oshpark.com/shared_projects/2v4dNsRr
 
 AIC
 15/08/2016

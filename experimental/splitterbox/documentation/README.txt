@@ -34,3 +34,5 @@ Refer to the source code for more details.
 Prototype is functional, but requires more work to get to a usable product.
 Could perhaps be expanded to support more USB ports by creating a custom "transmit-only"
 version of SoftwareSerial for ports other than USB-A.
+
+PCB: https://oshpark.com/shared_projects/ameUqaLq
