@@ -1,4 +1,4 @@
-name=ATtiny Microcontrollers
+name=Liverpool Ringing Simulator Boards (ATtiny)
 
 tools.avrdude.erase.params.verbose=-v -v -v -v
 tools.avrdude.erase.params.quiet=-q -q
