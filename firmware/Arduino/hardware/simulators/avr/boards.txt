@@ -1,4 +1,5 @@
-# Consolidated boards.txt for all Liverpool Ringing Simulator ATMega boards
+# Consolidated boards.txt for all Liverpool Ringing Simulator boards
+#
 #
 ###########################################################################
 # Mk1 Hardware is a complete Uno R3
@@ -12,7 +13,6 @@
 #simulatormk1.bootloader.high_fuses=0xD6
 #simulatormk1.bootloader.extended_fuses=0xFD
 #simulatormk1.bootloader.tool=arduino:avrdude
-#simulatormk1.bootloader.file=optiboot_atmega328.hex
 #simulatormk1.bootloader.unlock_bits=0x3F
 #simulatormk1.bootloader.lock_bits=0x0F
 # Build
@@ -34,7 +34,6 @@
 #simulatormk2.bootloader.high_fuses=0xD6
 #simulatormk2.bootloader.extended_fuses=0xFD
 #simulatormk2.bootloader.tool=arduino:avrdude
-#simulatormk2.bootloader.file=optiboot_atmega328.hex
 #simulatormk2.bootloader.unlock_bits=0x3F
 #simulatormk2.bootloader.lock_bits=0x3F
 # Build
@@ -56,7 +55,6 @@ simulator.bootloader.low_fuses=0xE2
 simulator.bootloader.high_fuses=0xD7
 simulator.bootloader.extended_fuses=0xFD
 simulator.bootloader.tool=arduino:avrdude
-simulator.bootloader.file=optiboot_atmega328.hex
 simulator.bootloader.unlock_bits=0x3F
 simulator.bootloader.lock_bits=0x3F
 # Build
@@ -67,6 +65,42 @@ simulator.build.f_cpu=8000000L
 simulator.build.core=arduino:arduino
 simulator.build.variant=arduino:standard
 simulator.build.board=AVR_SIMULATOR
+
+###########################################################################
+# One Bell Simulator Interface Board
+onebell.name=One Bell Simulator Interface Board (ICSP)
+onebell.bootloader.tool=arduino:avrdude
+onebell.bootloader.unlock_bits=0xff
+onebell.bootloader.lock_bits=0xff
+onebell.build.core=arduino:arduino
+onebell.build.board=attiny
+onebell.upload.tool=arduino:avrdude
+onebell.upload.maximum_size=8192
+onebell.build.mcu=attiny85
+onebell.build.variant=tiny8
+onebell.bootloader.low_fuses=0xe2
+onebell.bootloader.high_fuses=0xd5
+onebell.bootloader.extended_fuses=0xff
+onebell.build.f_cpu=8000000L
+onebell.build.board=AVR_ONEBELL
+
+###########################################################################
+# 38kHz Simulator Sensor Interface Boards
+sensor38khz.name=38kHz Simulator Sensor Interface Boards (ICSP)
+sensor38khz.bootloader.tool=arduino:avrdude
+sensor38khz.bootloader.unlock_bits=0xff
+sensor38khz.bootloader.lock_bits=0xff
+sensor38khz.build.core=arduino:arduino
+sensor38khz.build.board=attiny
+sensor38khz.upload.tool=arduino:avrdude
+sensor38khz.upload.maximum_size=8192
+sensor38khz.build.mcu=attiny85
+sensor38khz.build.variant=tiny8
+sensor38khz.bootloader.low_fuses=0xe2
+sensor38khz.bootloader.high_fuses=0xd5
+sensor38khz.bootloader.extended_fuses=0xff
+sensor38khz.build.f_cpu=8000000L
+sensor38khz.build.board=AVR_38KHZSENSOR
 
 ###########################################################################
 # Splitter Box - Functional Prototype HW Rev 1
@@ -80,7 +114,6 @@ splitter.bootloader.low_fuses=0xE2
 splitter.bootloader.high_fuses=0xD7
 splitter.bootloader.extended_fuses=0xFD
 splitter.bootloader.tool=arduino:avrdude
-splitter.bootloader.file=optiboot_atmega328.hex
 splitter.bootloader.unlock_bits=0x3F
 splitter.bootloader.lock_bits=0x3F
 # Build
@@ -92,7 +125,7 @@ splitter.build.board=AVR_SPLITTER
 
 ###########################################################################
 # Twin Simulator Sensor Interface Board (ATmega, with serial port)
-twinsensormega.name=Twin Sensor Interface Board (ATmega) (ICSP)
+twinsensormega.name=Twin Sensor Interface Board (ATmega328P) (ICSP)
 # Upload
 twinsensormega.upload.using=arduino:arduinoisp
 twinsensormega.upload.maximum_size=32768
@@ -102,7 +135,6 @@ twinsensormega.bootloader.low_fuses=0xE2
 twinsensormega.bootloader.high_fuses=0xD7
 twinsensormega.bootloader.extended_fuses=0xFD
 twinsensormega.bootloader.tool=arduino:avrdude
-twinsensormega.bootloader.file=optiboot_atmega328.hex
 twinsensormega.bootloader.unlock_bits=0x3F
 twinsensormega.bootloader.lock_bits=0x3F
 # Build
@@ -111,3 +143,21 @@ twinsensormega.build.f_cpu=8000000L
 twinsensormega.build.core=arduino:arduino
 twinsensormega.build.variant=arduino:standard
 twinsensormega.build.board=AVR_TWINSENSOR_MEGA
+
+###########################################################################
+# Twin Simulator Sensor Interface Board (ATtiny, no serial port)
+twinsensor.name=Twin Sensor Interface Board (ATtiny85) (ICSP)
+twinsensor.bootloader.tool=arduino:avrdude
+twinsensor.bootloader.unlock_bits=0xff
+twinsensor.bootloader.lock_bits=0xff
+twinsensor.build.core=arduino:arduino
+twinsensor.build.board=attiny
+twinsensor.upload.tool=arduino:avrdude
+twinsensor.upload.maximum_size=8192
+twinsensor.build.mcu=attiny85
+twinsensor.build.variant=tiny8
+twinsensor.bootloader.low_fuses=0xe2
+twinsensor.bootloader.high_fuses=0xd5
+twinsensor.bootloader.extended_fuses=0xff
+twinsensor.build.f_cpu=8000000L
+twinsensor.build.board=AVR_TWINSENSOR_TINY
