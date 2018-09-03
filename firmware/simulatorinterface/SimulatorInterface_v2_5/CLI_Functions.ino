@@ -1,8 +1,8 @@
 /*
-Simulator Interface v2.4 Beta
+Simulator Interface v2.5
 Serial CLI Functions
 
-Copyright 2014-2016 Andrew J Instone-Cowie.
+Copyright 2014-2018 Andrew J Instone-Cowie.
 
 This is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -45,9 +45,9 @@ void dumpData( void ) {
 
 	// What version of hardware are we compiled for? 
 	Serial.print(F("Hardware Version: "));
-#if defined HW_MK1
+#if defined ARDUINO_AVR_SIMULATORMK1
 	Serial.println("1");
-#elif defined HW_MK2
+#elif defined ARDUINO_AVR_SIMULATOR
 	Serial.println("2");
 #else
 	Serial.println(F("Unknown"));

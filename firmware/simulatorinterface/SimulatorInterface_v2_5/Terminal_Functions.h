@@ -1,8 +1,8 @@
 /*
-Simulator Interface v2.4 Beta
+Simulator Interface v2.5
 Terminal Functions Attributes
 
-Copyright 2014-2016 Andrew J Instone-Cowie.
+Copyright 2014-2018 Andrew J Instone-Cowie.
 
 This is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

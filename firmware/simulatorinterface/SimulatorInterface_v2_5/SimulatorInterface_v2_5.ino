@@ -1,7 +1,7 @@
 /*
-Simulator Interface v2.4 Beta
+Simulator Interface v2.5
 
-Copyright 2014-2016 Andrew J Instone-Cowie.
+Copyright 2014-2018 Andrew J Instone-Cowie.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Tested against Abel 3.9.1, Beltower 12.29 (2015), Virtual Belfry 3.3.
+Tested against Abel 3.10.0, Beltower 12.35 (2017), Virtual Belfry 3.5.
 
 	1.2 : First production release
 	1.3 : Changes to signal LED blink to support Beltower 2013 (12.15)
@@ -85,6 +85,10 @@ Tested against Abel 3.9.1, Beltower 12.29 (2015), Virtual Belfry 3.3.
 		Tested against Virtual Belfry 3.3 (no code changes).
 		15,188 Bytes Flash, 708 Bytes SRAM.
 		** 5th Cathedral Release (on Rev B PCB) - 10/02/2016 **
+	2.5 : Switched #ifdefs to use ARDUINO_{build.board} values for auto-selection.
+		No functional changes.
+		Final planned release of firmware for the Type 1 simulator.
+		
 */
 
 /*
@@ -104,9 +108,10 @@ extended_fuses=0x05
 // Simulator Interface Hardware
 //  - Mk1 hardware is a based on a full Uno R3, plus shields.
 //  - Mk2 hardware is the stripboard/PCB ATmega328p version.
-// Uncomment ONE of the following lines before programming.
-//#define HW_MK1
-#define HW_MK2
+//  - The IDE sets up a #define ARDUINO_AVR_{BUILD.BOARD} from boards.txt
+//    so there is no need to uncomment one of  the following lines.
+//#define ARDUINO_AVR_SIMULATORMK1
+//#define ARDUINO_AVR_SIMULATOR
 
 // Uncomment the following line to use a pin as a CRO timing pin.
 // This should be commented out in production code.
@@ -128,7 +133,7 @@ VTSerial vtSerial;
 // Locations 0-11  : Bells 1-12 Delay Timers (in cs)
 // Locations 12-15 : Reserved for future Bells 13-16 Delay Timers
 // Location  16    : Accidental Status (#,b) - Not supported yet
-// Location  17    : Simulator Type (A,B,R,X)
+// Location  17    : Simulator Type (A,B,R,V,X)
 // Location  18    : Number of channels (bell pins) active & to be scanned
 // Location  19    : Debounce Timer (in ms)
 // Location  20    : Serial port speed (as an index into serialSpeeds[])
@@ -141,7 +146,7 @@ VTSerial vtSerial;
 
 // Software version
 const int majorVersion = 2;
-const int minorVersion = 4;
+const int minorVersion = 5;
 
 // -------------------------------------------------------------------------------------------
 //                                    Core Simulator
@@ -161,11 +166,11 @@ int numChannels; // initialised from EEPROM in setup
 
 // Define bell sensor input pins, avoid 13 because of the LED (sensors are normally HIGH,
 // the onboard LED will tend to pull it low), and 12 for the additional yellow signal LED
-#ifdef HW_MK1
+#ifdef ARDUINO_AVR_SIMULATORMK1
 const int bellSensorPin[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15 }; //14-15 aka A0-A1
 #endif
 
-#ifdef HW_MK2
+#ifdef ARDUINO_AVR_SIMULATOR
 const int bellSensorPin[] = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }; //14-19 aka A0-A5
 #endif
 
@@ -350,22 +355,22 @@ const int testInterval = 200; //msec
 // -------------------------------------------------------------------------------------------
 
 // Miscellaneous LEDs and optionally a CRO timing pin
-#ifdef HW_MK1
+#ifdef ARDUINO_AVR_SIMULATORMK1
 const int LEDred = 13;
 const int LEDyellow = 12;
 #endif
 
-#ifdef HW_MK2
+#ifdef ARDUINO_AVR_SIMULATOR
 const int LEDred = 7;
 const int LEDyellow = 6;
 #endif
 
 // If USE_CRO was defined above, define a pin for CRO timing measurements.
-#if defined USE_CRO && defined HW_MK1
+#if defined USE_CRO && defined ARDUINO_AVR_SIMULATORMK1
 const int CROpin = 19; // 19 == A5
 #endif
 
-#if defined USE_CRO && defined HW_MK2
+#if defined USE_CRO && defined ARDUINO_AVR_SIMULATOR
 const int CROpin = 5; 
 #endif
 
@@ -763,7 +768,7 @@ void loop() {
 			break; //bellMachineState == TEST_MODE
 
 			// ---------------------------------------------------------------------------------------
-			// -                                      SENSOR_DISABLED                                      -
+			// -                                      SENSOR_DISABLED                                -
 			// ---------------------------------------------------------------------------------------      
 		case SENSOR_DISABLED:
 			
