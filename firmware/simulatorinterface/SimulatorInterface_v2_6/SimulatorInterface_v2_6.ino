@@ -1,5 +1,5 @@
 /*
-Simulator Interface v2.6
+Simulator Interface v2.6a
 
 Copyright 2014-2025 Andrew J Instone-Cowie.
 
@@ -91,6 +91,8 @@ Tested against Abel 3.10.0, Beltower 12.35 (2017), Virtual Belfry 3.5.
 	2.6 : Add ability (as option X) to turn off applying strike delays in the interface,
 	    and have WAIT_TO_SEND do double duty as the guard timer.
 		Legacy documentation NOT updated with this feature.
+	2.6a : Backport swing delta timing debug option from Type 2 firmware v3.8.
+		Reformat debug messages to match updated Type 2 convention.
 		
 */
 
@@ -332,15 +334,16 @@ word debugBellMask; // initialised from EEPROM in setup. See option M.
 word debugFlagsMask = 1; //debug starts with DEBUG_PULSE_TIMER flag set by default
 
 // Define the maximum configured number of flags. This value will depend on the flags
-// actually implemented in the code. Currently there are 4 flags, as #defined below.
+// actually implemented in the code. Currently there are 5 flags, as #defined below.
 // If you add a debug level, increment this constant so that the CLI works.
-const int maxDebugFlags = 4;
+const int maxDebugFlags = 5;
 
 // Define the debug flags as text to make the code more readable
 #define DEBUG_PULSE_TIMER 1		//bit 0
 #define DEBUG_SHOW_MISFIRES 2	//bit 1
 #define DEBUG_SHOW_DEBOUNCE 4	//bit 2
 #define DEBUG_SHOW_LED 8		//bit 3
+#define DEBUG_SWING_TIMER 16	//bit 4
 // (See also the function printDebugFlagName(), seeing as F() is not available globally)
 
 // Define the default debug deplay timer. See option Z.
@@ -369,6 +372,26 @@ int pulseTimeLastValue[maxNumChannels]; //initialise these in setup, and set the
 // by counting spurious pulse *ends* (LOW to HIGH) when we aren't expecting them, and to make
 // sure we timed only the first pulse.
 int pulseTimeCount[maxNumChannels]; //initialise in setup, and set to zero
+
+
+// -------------------------------------------------------------------------------------------
+//                                   Debug Swing Timing
+// -------------------------------------------------------------------------------------------
+
+// These variables are used for debug mode swing timing only. There is no need to do swing
+// timing during normal operation.
+
+// Set up an array to hold the saved start time of the previous pulse, so that the delta between
+// one pulse and the next (i.e. the swing time) can be calculated, one per bell. The previous
+// value of pulseStartTime[n] is pushed into this array before pulseStartTime[n] is updated. 
+unsigned long lastPulseStartTime[maxNumChannels]; // microseconds, initialise these in setup()
+
+// Set up an array to hold the duration of the previous swing, so that the swing time delta can
+// be calculated (i.e. the difference between handstroke and backstroke). The swingTime value is
+// pushed into lastSwingTime[n] after the current swing time has been calculated and displayed.
+// Data type is long, because this will be difference between two long values, and may be negative.
+long lastSwingTime[maxNumChannels]; // milliseconds, initialise these in setup()
+
 
 // -------------------------------------------------------------------------------------------
 //                                     CLI Terminal
@@ -480,11 +503,13 @@ void setup() {
 		// machine leaves "WAIT_FOR_INPUT", but there is no harm in initialising it here just in case.
 		bellDebounceEndTime[i] = millis();
 
-		// initialise the variables used for debug mode pulse length measurements    
-		pulseStartTime[i] = micros();
-		pulseEndTime[i] = micros();
+		// initialise the variables used for debug mode pulse length and swing time measurements    
+		pulseStartTime[i] = 0;
+		pulseEndTime[i] = 0;
 		pulseTimeLastValue[i] = HIGH;
 		pulseTimeCount[i] = 0;
+		lastPulseStartTime[i] = 0; //swing timing
+		lastSwingTime[i] = 0; //swing timing
 		
 	}
 	
@@ -586,8 +611,9 @@ void loop() {
 				
 				// If we are in debug mode, grab the pulse start time and reset the counter.
 				// Both the pulse timer and the misfire detection require pulse timing to be done
-				if ( debugThisBell( i ) && isDebugFlagSet( DEBUG_PULSE_TIMER | DEBUG_SHOW_MISFIRES ) ) {
+				if ( debugThisBell( i ) && isDebugFlagSet( DEBUG_PULSE_TIMER | DEBUG_SHOW_MISFIRES | DEBUG_SWING_TIMER ) ) {
 					
+					lastPulseStartTime[i] = pulseStartTime[i]; //save the previous value for swing timer debugging
 					pulseStartTime[i] = micros();
 					
 					// Avoid overflows giving a silly number if we get to a debug print before the end
@@ -645,10 +671,11 @@ void loop() {
 					// Grab the time of the end of the pulse (approximately) 
 					pulseEndTime[i] = micros();
 					
+					Serial.print(F("M " ));
 					Serial.print( bellStrikeChar[i] );
 					Serial.print(F(" "));
 					Serial.print( bellCharSendTime[i] );
-					Serial.print(F(" M " ));
+					Serial.print(F(" " ));
 					Serial.println( pulseEndTime[i] - pulseStartTime[i] );
 					
 					// There is no need to set the pulse counter here - misfires are by
@@ -676,14 +703,51 @@ void loop() {
 					Serial.print( bellStrikeChar[i] );
 				}	
 				
-				if ( debugThisBell( i ) && isDebugFlagSet( DEBUG_SHOW_DEBOUNCE ) ) {
-					Serial.print( bellStrikeChar[i]);
-					Serial.print(F(" "));
-					Serial.print( bellCharSendTime[i] );
-					Serial.println(F(" D" ));
-				} //debugThisBell		 
+				if ( debugThisBell( i ) ) {
+					
+					if ( isDebugFlagSet( DEBUG_SHOW_DEBOUNCE ) ) {
+						Serial.print(F("D " ));
+						Serial.print( bellStrikeChar[i]);
+						Serial.print(F(" "));
+						Serial.println( bellCharSendTime[i] );
+					} //debugFlagSet		 
 				
-			}
+					if ( isDebugFlagSet( DEBUG_SWING_TIMER ) ) {
+						
+						// Variables to hold the swing time and delta, in milliseconds
+						long swingTime;
+						long swingTimeDelta;
+						
+						// Calculate the length of this swing, converting to milliseconds
+						swingTime = ( ( pulseStartTime[i] - lastPulseStartTime[i] ) / 1000 ) ;
+						// Calculate the difference between this swing and the last one, in milliseconds
+						swingTimeDelta = ( swingTime - lastSwingTime[i] ) ; // NB may be negative
+						
+						
+						Serial.print(F("T " ));
+						Serial.print( bellStrikeChar[i]);
+						Serial.print(F(" "));
+						Serial.print( swingTime ); //milliseconds, always positive
+						Serial.print(F(" "));
+						
+						// Try to align negatives and zeroes reasonably nicely
+						if ( swingTimeDelta > 0 ) {
+							Serial.print( "+" ); // Print will handle the negative signs
+						}
+						else if ( swingTimeDelta == 0 ) {
+							Serial.print( " " ); // no sign for zero
+						}
+						
+						Serial.println( swingTimeDelta ); //milliseconds, may be negative or zero
+												
+						// Save the swing time for this bell for re-use next time around.
+						lastSwingTime[i] = swingTime;
+					
+					} //debugFlagSet				
+				
+				} //debugThisBell
+				
+			} //else if
 			
 			// There is no other else here - if the input  is still low and the timer
 			// has not expired, we are still testing the signal quality so we just loop round.
@@ -735,10 +799,11 @@ void loop() {
 					
 					if ( isDebugFlagSet( DEBUG_PULSE_TIMER ) ) {
 						
+						Serial.print(F("S "));
 						Serial.print( bellStrikeChar[i] );
 						Serial.print(F(" "));
 						Serial.print( bellCharSendTime[i] );
-						Serial.print(F(" S "));
+						Serial.print(F(" "));
 						Serial.print( pulseEndTime[i] - pulseStartTime[i] );
 						Serial.print(F(" "));
 						Serial.println(pulseTimeCount[i]);

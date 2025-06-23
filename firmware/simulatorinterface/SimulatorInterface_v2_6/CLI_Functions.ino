@@ -643,8 +643,7 @@ void showCLIDebugHelp(void) {
 
 // Print a mask (e.g. debugMask or enabledSensorMask) as fixed and spaced width binary, LSB
 // (usually treble) first, showing a fixed number of bits only.
-void printMask( word thisMask, int places )
-{
+void printMask( word thisMask, int places ) {
 	int i;
 	for ( i = 0; i < places; i++ ) {
 		// Print the value of the bits.
@@ -664,8 +663,7 @@ void printMask( word thisMask, int places )
 // disable a sensor or debug a bell. Bits are passed as 0 to 15, if you need to convert from
 // a bell number, do it before passing the bit here. Pass the mask as a pointer so the
 // original data gets updated. Don't bother trying to toggle a bit >maxBits.
-boolean toggleMaskBit( word *thisMask, int thisBit, int maxBits )
-{
+boolean toggleMaskBit( word *thisMask, int thisBit, int maxBits ) {
 	if ( thisBit >= 0 && thisBit < maxBits ) {
 		bitWrite( *thisMask, thisBit, ( bitRead ( *thisMask, thisBit ) ^ 1 ));
 		return true;
@@ -685,8 +683,7 @@ boolean toggleMaskBit( word *thisMask, int thisBit, int maxBits )
 
 // Run through the enabledSensorMask, and set the state machine for each sensor to be
 // WAIT_FOR_INPUT or SENSOR_DISABLED based on the bit value (1 = enabled, 0 = disabled).
-void enableSensors( word thisMask, int maxBits )
-{
+void enableSensors( word thisMask, int maxBits ) {
 	int i;
 	for ( i = 0; i < maxBits; i++ ) {
 		if ( bitRead( thisMask, i ) == 1 ) {
@@ -711,8 +708,7 @@ void enableSensors( word thisMask, int maxBits )
 // Check that the simulator type supplied by the user (or found in EEPROM) is valid,
 // by seeing if it exists in the simOneChar field of simulatorNames[].
 
-boolean checkValidSimulatorType( char testchar )
-{
+boolean checkValidSimulatorType( char testchar ) {
 
 	int i;
 	for ( i = 0; i < numSimulatorNames; i++) {

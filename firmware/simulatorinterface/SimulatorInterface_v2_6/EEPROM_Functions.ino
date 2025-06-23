@@ -42,8 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //  Save under certain circumstances: 
 // 	Locations 0-11  : Bells 1-12 Delay Timers (in cs) - Saved when received
 
-void saveToEEPROM( void )
-{
+void saveToEEPROM( void ) {
 	termSetFor( TERM_CONFIRM );
 	
 	// Only save the byte if different from the current value, to reduce EEPROM write wear	
@@ -128,8 +127,7 @@ void saveToEEPROM( void )
 // 	Location  16    : Accidental Status (#,b) - Not supported yet
 
 
-void loadFromEEPROM( void )
-{
+void loadFromEEPROM( void ) {
 	// No point printing messages, the serial port isn't started yet...
 
 	// generic loop counter

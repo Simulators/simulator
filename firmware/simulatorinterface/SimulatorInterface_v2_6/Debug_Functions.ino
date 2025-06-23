@@ -93,6 +93,9 @@ void printDebugFlagName( int level ) {
 	case 3: // DEBUG_SHOW_LED
 		Serial.print(F("DEBUG_SHOW_LED"));
 		break;
+	case 4: // DEBUG_SWING_TIMER
+		Serial.print(F("DEBUG_SWING_TIMER"));
+		break;	
 	default: // Some other debugLevel value
 		Serial.print(F("Invalid"));
 		break;
