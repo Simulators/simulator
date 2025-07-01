@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Tested against Abel 3.10.0, Beltower 12.35 (2017), Virtual Belfry 3.5.
+Tested against Abel 3.10.0, Beltower 14.05 (2025), Virtual Belfry 3.5.
 
 	1.2 : First production release
 	1.3 : Changes to signal LED blink to support Beltower 2013 (12.15)
